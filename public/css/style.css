@@ -98,6 +98,69 @@ body {
     object-fit: cover;
 }
 
+/* Profile Info Section */
+.profile-info {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-name {
+    
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-family: var(--font-heading);
+    line-height: 1.3;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.contact-info-left {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-item-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    color: var(--white);
+    font-size: 14px;
+    font-family: var(--font-text);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.contact-item-left:last-child {
+    margin-bottom: 0;
+}
+
+.contact-item-left:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.contact-item-left i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--white);
+}
+
+.contact-item-left span {
+    flex: 1;
+    font-weight: 500;
+    word-break: break-word;
+}
+
 /* CV Sections in Left Column */
 .cv-section {
     margin-bottom: 30px;
@@ -177,6 +240,15 @@ body {
     line-height: 1.6;
 }
 
+.profile-name-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+}
+
 /* ===================================
    Right Column - Main Content
    =================================== */
@@ -188,72 +260,42 @@ body {
 /* Header Section */
 .header-section {
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    padding: 50px 45px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 40px;
-    align-items: start;
+    padding: 40px 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-bottom: 3px solid #f0f0f0;
 }
 
 .name-title {
-    padding-top: 5px;
+    text-align: center;
 }
 
-.name {
-    font-size: 38px;
-    font-weight: 900;
+.job-title-header {
+    font-size: 24px;
+    font-weight: 700;
     color: var(--dark);
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
-    font-family: var(--font-heading);
-    line-height: 1.1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+    margin: 0;
+}
+
+/* Remove old name and contact styles */
+.name {
+    display: none;
 }
 
 .job-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text-gray);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-family: var(--font-body);
+    display: none;
 }
 
-/* Contact Info */
 .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 20px;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 12px;
-    border-left: 4px solid var(--primary-blue);
+    display: none;
 }
 
 .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    color: var(--text-dark);
-    font-family: var(--font-text);
-    transition: all 0.3s ease;
-}
-
-.contact-item:hover {
-    transform: translateX(3px);
-}
-
-.contact-item i {
-    width: 20px;
-    text-align: center;
-    color: var(--primary-blue);
-    font-size: 16px;
-}
-
-.contact-item span {
-    font-weight: 500;
-    color: var(--text-dark);
+    display: none;
 }
 
 /* ===================================
@@ -314,6 +356,38 @@ body {
     color: var(--text-gray);
 }
 
+.section-content-right strong {
+    color: var(--dark);
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 4px;
+    min-width: 120px;
+}
+
+.project-item {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.project-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.project-item p:first-child {
+    margin-bottom: 5px;
+}
+
+.project-link {
+    margin-top: 3px;
+}
+
+.project-link a {
+    font-size: 13px;
+    color: var(--text-gray);
+}
+
 /* Links Styling */
 a {
     color: var(--primary-blue);
@@ -321,6 +395,13 @@ a {
     font-weight: 600;
     transition: all 0.3s ease;
     position: relative;
+}
+
+a.print-link {
+    color: #2980b9;
+    font-weight: 500;
+    font-size: 13px;
+    word-break: break-all;
 }
 
 a:hover {
@@ -619,11 +700,54 @@ a:hover {
     }
 
     .profile-image {
-        width: 140px;
-        height: 140px;
-        margin: 0 auto 20px;
+        width: 130px;
+        height: 130px;
+        margin: 0 auto 15px;
         border: 4px solid rgba(255, 255, 255, 0.3);
         page-break-inside: avoid;
+    }
+
+    .profile-info {
+        margin-bottom: 15px;
+        page-break-inside: avoid;
+    }
+
+    .profile-name {
+        font-size: 18pt;
+        margin-bottom: 12px;
+        line-height: 1.2;
+        color: var(--white);
+    }
+
+    .profile-name-text {
+        font-size: 13pt;
+        margin-bottom: 8px;
+        line-height: 1.2;
+        color: var(--white);
+    }
+
+    .contact-info-left {
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .contact-item-left {
+        font-size: 9pt;
+        padding: 4px 8px;
+        margin-bottom: 5px;
+    }
+
+    .contact-item-left i {
+        font-size: 10pt;
+    }
+
+    .header-section {
+        padding: 20px 30px;
+        border-bottom: 2px solid #e0e0e0;
+    }
+
+    .job-title-header {
+        font-size: 14pt;
     }
 
     .cv-section {
@@ -676,6 +800,8 @@ a:hover {
         gap: 25px;
         page-break-inside: avoid;
         page-break-after: avoid;
+        display: flex;
+        justify-content: center;
     }
 
     .header-section::before {
@@ -687,23 +813,32 @@ a:hover {
         line-height: 1.1;
         margin-bottom: 6px;
         color: #2d3436;
+        display: none;
     }
 
     .job-title {
         font-size: 12pt;
         letter-spacing: 1px;
+        display: none;
+    }
+
+    .job-title-header {
+        font-size: 16pt;
+        text-align: center;
     }
 
     .contact-info {
         padding: 14px;
         gap: 8px;
         background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        display: none;
     }
 
     .contact-item {
         font-size: 10pt;
         padding: 4px 8px;
         gap: 10px;
+        display: none;
     }
 
     .contact-item i {
@@ -747,11 +882,42 @@ a:hover {
     /* Links styling for print */
     a {
         color: var(--primary-blue);
-        text-decoration: underline;
+        text-decoration: none;
+    }
+
+    a.print-link {
+        color: #333 !important;
+        font-size: 9pt;
+        word-break: break-all;
+        text-decoration: none;
     }
 
     a::after {
         display: none;
+    }
+
+    .section-content-right strong {
+        display: inline-block;
+        margin-bottom: 3px;
+        color: var(--dark);
+        min-width: 90px;
+    }
+
+    .section-content-right p {
+        margin-bottom: 8px;
+    }
+
+    .project-item {
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+    }
+
+    .project-item p:first-child {
+        margin-bottom: 3px;
+    }
+
+    .project-link a {
+        font-size: 8pt;
     }
 
     /* Ensure colors print correctly */
